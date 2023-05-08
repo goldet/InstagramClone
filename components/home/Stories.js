@@ -1,22 +1,37 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { DummyDataUsers } from "../../data/DummyDataUsers";
 
 const Stories = () => {
   return (
     <View style={styles.container}>
-      {DummyDataUsers.map((users) => (
-        <View>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {DummyDataUsers.map((story, index) => (
+          <View>
             <TouchableOpacity>
-          <Image
-            key={users.user}
-            style={styles.users}
-            source={{ uri: users.image }}
-          />
-          </TouchableOpacity>
-          <Text style={styles.username}>{users.user}</Text>
-        </View>
-      ))}
+              <Image
+                key={index}
+                style={styles.story}
+                source={{ uri: story.image }}
+              />
+            </TouchableOpacity>
+            <Text
+              style={styles.username}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {story.user}
+            </Text>
+          </View>
+        ))}
+      </ScrollView>
     </View>
   );
 };
@@ -26,20 +41,22 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    marginHorizontal: 20,
-    borderBottomColor: 'rgb(69,69,72)',
+    borderBottomColor: "rgb(69,69,72)",
     borderWidth: 2,
+    paddingBottom: 13,
   },
-  users: {
-    height: 50,
-    width: 50,
+  story: {
+    height: 65,
+    width: 65,
     borderRadius: 100,
     borderColor: "orange",
-    borderWidth: 2,
+    borderWidth: 3,
+    marginLeft: 6,
   },
   username: {
     color: "white",
-    width: 50,
+    width: 65,
+    marginLeft: 6,
   },
 });
 
