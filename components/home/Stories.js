@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     flexDirection: "row",
-    borderBottomColor: "rgb(69,69,72)",
-    borderWidth: 2,
     paddingBottom: 13,
   },
   story: {

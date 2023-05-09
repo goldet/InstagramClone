@@ -7,7 +7,7 @@ const Header = () => {
       <TouchableOpacity>
         <Image
           style={styles.logo}
-          source={require("../../assets/instagramlogo.png")}
+          source={require("../../assets/igtitlelogo.png")}
         />
       </TouchableOpacity>
 
@@ -22,7 +22,7 @@ const Header = () => {
         <TouchableOpacity>
           <Image
             style={styles.icon}
-            source={require("../../assets/icons8-heart-50.png")}
+            source={require("../../assets/icons8-heart-32.png")}
           />
         </TouchableOpacity>
 
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     width: 100,
-    height: 70,
+    height: 50,
     resizeMode: "contain",
   },
   iconsContainer: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     height: 30,
     width: 30,
     marginLeft: 10,
-    reziseMode: "contain",
+    resizeMode: "contain",
   },
   unreadBadge: {
     backgroundColor: "red",
@@ -69,15 +69,13 @@ const styles = StyleSheet.create({
     width: 25,
     height: 18,
     borderRadius: 25,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     zIndex: 100,
-    
   },
   unreadBadgeText: {
-    color: 'white',
+    color: "white",
     fontWeight: 600,
-    
   },
 });
 

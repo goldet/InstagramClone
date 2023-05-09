@@ -1,5 +1,3 @@
-import React from "react";
-
 export const DummyDataUsers = [
     {
         user: 'samson01',
