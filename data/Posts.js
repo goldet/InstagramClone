@@ -9,6 +9,9 @@ export const Posts = [
     comments: [
       { user: "dogmom_4857", comment: "Wow, looks beautiful!" },
       { user: "kyra_98", comment: "What a great trip!" },
+      { user: "plantl0v3r", comment: "💓" },
+      { user: "plantl0v3r", comment: "💓" },
+      { user: "plantl0v3r", comment: "💓" },
     ],
   },
   {

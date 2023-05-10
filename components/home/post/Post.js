@@ -11,7 +11,7 @@ const Post = ({ post }) => {
       <Divider width={1} orientation="vertical" />
       <PostHeader post={post} />
       <PostImage post={post}/>
-      <PostFooter />
+      <PostFooter post={post}/>
     </View>
   );
 };
