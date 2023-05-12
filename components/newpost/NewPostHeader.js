@@ -14,9 +14,10 @@ const NewPostHeader = () => {
       </TouchableOpacity>
 
       <Text style={styles.text}>New Post</Text>
-      <TouchableOpacity>
+      <View style={{ width: 20}}></View>
+     {/*  <TouchableOpacity>
         <Text style={styles.text}>Share</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </View>
   );
 };
@@ -24,11 +25,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     flexDirection: "row",
-    marginHorizontal: 20,
     justifyContent: "space-between",
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderBottomColor: "gray",
     borderBottomWidth: 1,
   },
   logo: {
