@@ -1,4 +1,4 @@
-import { View, Text, Button, Pressable } from "react-native";
+import { View, Text, Button, Pressable, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
@@ -56,16 +56,9 @@ const LoginForm = () => {
         touched,
       }) => (
         <>
-          <View style={{ gap: 10, padding: 30 }}>
+          <View style={styles.container}>
             <TextInput
-              style={{
-                color: "black",
-                fontSize: 16,
-                borderColor: "gray",
-                borderWidth: 0.5,
-                height: 50,
-                paddingLeft: 10,
-              }}
+              style={styles.textInput}
               onChange={(e) => setUsername(e.nativeEvent.text)}
               placeholder="Phone number, username, or email"
               placeholderTextColor="gray"
@@ -74,25 +67,11 @@ const LoginForm = () => {
               value={values.username}
             />
             {touched.username && errors.username && (
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: "red",
-                }}
-              >
-                {errors.username}
-              </Text>
+              <Text style={styles.error}>{errors.username}</Text>
             )}
 
             <TextInput
-              style={{
-                color: "black",
-                fontSize: 16,
-                borderColor: "gray",
-                borderWidth: 0.5,
-                height: 50,
-                paddingLeft: 10,
-              }}
+              style={styles.textInput}
               onChange={(e) => setPassword(e.nativeEvent.text)}
               placeholder="Password"
               secureTextEntry={true}
@@ -102,23 +81,14 @@ const LoginForm = () => {
               value={values.password}
             />
             {touched.password && errors.password && (
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: "red",
-                }}
-              >
-                {errors.password}
-              </Text>
+              <Text style={styles.error}>{errors.password}</Text>
             )}
             <Pressable
-              style={{
-                alignItems: "flex-end",
-              }} /* onPress={nav to forgot password screen} */
+              style={
+                styles.forgotPasswordContainer
+              } /* onPress={nav to forgot password screen} */
             >
-              <Text style={{ fontSize: 12, color: "rgb(71,105,144)" }}>
-                Forgot password?
-              </Text>
+              <Text style={styles.forgotPasswordText}>Forgot password?</Text>
             </Pressable>
 
             <Button
@@ -129,25 +99,17 @@ const LoginForm = () => {
               disabled={!isValid}
             />
 
-            <Pressable 
-            onPress={() => navigation.navigate("SignupScreen")}
-              style={{
-                alignItems: "center",
-              }} /* onPress={nav to forgot password screen} */
+            <Pressable
+              onPress={() => navigation.navigate("SignupScreen")}
+              style={
+                styles.goToSignup
+              } /* onPress={nav to forgot password screen} */
             >
-              <View style={{ flexDirection: "row", gap: 5 }}>
-                <Text style={{ fontSize: 15, color: "black" }}>
+              <View style={styles.goToSignupContainer}>
+                <Text style={styles.goToSignupText}>
                   Don't have an account?
                 </Text>
-                <Text
-                  style={{
-                    fontSize: 15,
-                    color: "rgb(47,149,246)",
-                    fontWeight: 600,
-                  }}
-                >
-                  Sign up
-                </Text>
+                <Text style={styles.goToSignupLink}>Sign up</Text>
               </View>
             </Pressable>
           </View>
@@ -156,5 +118,43 @@ const LoginForm = () => {
     </Formik>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    gap: 10,
+    padding: 30,
+  },
+  textInput: {
+    color: "black",
+    fontSize: 16,
+    borderColor: "gray",
+    borderWidth: 0.5,
+    height: 50,
+    paddingLeft: 10,
+  },
+  error: {
+    fontSize: 10,
+    color: "red",
+  },
+  forgotPasswordContainer: {
+    alignItems: "flex-end",
+  },
+  forgotPasswordText: {
+    fontSize: 12,
+    color: "rgb(71,105,144)",
+  },
+  goToSignup: {
+    alignItems: "center",
+  },
+  goToSignupContainer: {
+    flexDirection: "row",
+    gap: 5,
+  },
+  goToSignupText: {
+    fontSize: 15,
+    color: "black",
+  },
+  goToSignupLink: { fontSize: 15, color: "rgb(47,149,246)", fontWeight: 600 },
+});
 
 export default LoginForm;

@@ -13,7 +13,7 @@ const SignedInStack = () => {
     return (
 <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="LoginScreen"
+          initialRouteName="BottomTab"
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="BottomTab" component={BottomTab} />

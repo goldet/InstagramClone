@@ -1,12 +1,11 @@
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, Image, Button, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
 import { Divider } from "react-native-elements";
 import validUrl from "valid-url";
-import { useNavigation } from '@react-navigation/native';
-
+import { useNavigation } from "@react-navigation/native";
 
 const placeholderIMG =
   "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
@@ -37,20 +36,18 @@ const FormikPostUploader = () => {
         isValid,
       }) => (
         <>
-          <View
-            style={{
-              margin: 28,
-              justifyContent: "space-between",
-              flexDirection: "row",
-            }}
-          >
+          <View style={styles.container}>
             <Image
-              source={{ uri: validUrl.isUri(thumbnailUrl) ? thumbnailUrl : placeholderIMG }}
-              style={{ width: 100, height: 100, borderRadius: 8 }}
+              source={{
+                uri: validUrl.isUri(thumbnailUrl)
+                  ? thumbnailUrl
+                  : placeholderIMG,
+              }}
+              style={styles.image}
             />
-            <View style={{ flex: 1, marinLeft: 12 }}>
+            <View style={styles.captionContainer}>
               <TextInput
-                style={{ color: "white", fontSize: 18, marginLeft: 10 }}
+                style={styles.textInput}
                 placeholder="Write a caption..."
                 placeholderTextColor="gray"
                 multiline={true}
@@ -60,12 +57,7 @@ const FormikPostUploader = () => {
               />
               {errors.caption && (
                 <Text
-                  style={{
-                    fontSize: 10,
-                    color: "red",
-                    marginLeft: 10,
-                    marginTop: 5,
-                  }}
+                  style={styles.error}
                 >
                   {errors.caption}
                 </Text>
@@ -74,12 +66,7 @@ const FormikPostUploader = () => {
           </View>
           <Divider width={0.2} orientation="vertical" />
           <TextInput
-            style={{
-              color: "white",
-              fontSize: 18,
-              marginLeft: 28,
-              marginTop: 10,
-            }}
+            style={styles.textInput2}
             onChange={(e) => setThumbnailUrl(e.nativeEvent.text)}
             placeholder="Enter image Url"
             placeholderTextColor="gray"
@@ -89,12 +76,7 @@ const FormikPostUploader = () => {
           />
           {errors.imageUrl && (
             <Text
-              style={{
-                fontSize: 10,
-                color: "red",
-                marginLeft: 28,
-                marginTop: 5,
-              }}
+              style={[styles.error, {marginLeft: 28}]}
             >
               {errors.imageUrl}
             </Text>
@@ -106,5 +88,39 @@ const FormikPostUploader = () => {
     </Formik>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    margin: 28,
+    justifyContent: "space-between",
+    flexDirection: "row",
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 8,
+  },
+  textInput: {
+    color: "white",
+    fontSize: 18,
+    marginLeft: 10,
+  },
+  textInput2: {
+    color: "white",
+    fontSize: 18,
+    marginLeft: 28,
+    marginTop: 10,
+  },
+  captionContainer: {
+    flex: 1,
+    marinLeft: 12,
+  },
+  error: {
+    fontSize: 10,
+                    color: "red",
+                    marginLeft: 10,
+                    marginTop: 5,
+  }
+});
 
 export default FormikPostUploader;
