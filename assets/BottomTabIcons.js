@@ -1,13 +1,14 @@
-import Homescreen from "../screens/Homescreen";
+import HomepageScreen from "../screens/HomepageScreen";
 import SearchScreen from "../screens/SearchScreen";
 import ReelsScreen from "../screens/ReelsScreen";
 import MessagesScreen from "../screens/MessagesScreen";
-import ProfileScreen from "../screens/ProfileScreen";
+import ProfileScreen from "../screens/ProfileScreen"
+
 
 export const BottomTabIcons = [
   {
     name: "Home",
-    component: Homescreen,
+    component: HomepageScreen,
     imageUrl: require("../assets/icons8-home-16.png"),
   },
   {

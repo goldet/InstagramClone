@@ -1,6 +1,5 @@
 import * as React from "react";
 import { PostProvider } from "./context/PostContext";
-import Homescreen from "./screens/Homescreen";
 import AddPhototoScreen from "./screens/AddPhototoScreen";
 import 'react-native-gesture-handler';
 import { NavigationContainer } from "@react-navigation/native";
@@ -16,7 +15,7 @@ export default function App() {
     <PostProvider>
       <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={BottomTab} />
+        <Stack.Screen name="BottomTab" component={BottomTab} />
         <Stack.Screen name="Profile" component={AddPhototoScreen} />
       </Stack.Navigator>
     </NavigationContainer>
