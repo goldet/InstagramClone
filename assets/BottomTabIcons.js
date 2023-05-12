@@ -3,7 +3,6 @@ import SearchScreen from "../screens/SearchScreen";
 import ReelsScreen from "../screens/ReelsScreen";
 import MessagesScreen from "../screens/MessagesScreen";
 import ProfileScreen from "../screens/ProfileScreen";
-import profileImage from "../assets/instagramuserprofileimage.png";
 
 export const BottomTabIcons = [
   {

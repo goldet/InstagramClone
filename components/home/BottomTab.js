@@ -2,8 +2,6 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { BottomTabIcons } from "../../assets/BottomTabIcons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import instagramuserprofileimage from "../../assets/instagramuserprofileimage.png";
-
 
 const Tab = createBottomTabNavigator();
 

@@ -1,7 +1,10 @@
 import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -12,7 +15,7 @@ const Header = () => {
       </TouchableOpacity>
 
       <View style={styles.iconsContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("NewPostScreen")}>
           <Image
             style={styles.icon}
             source={require("../../assets/icons8-add-new-50.png")}
@@ -25,16 +28,6 @@ const Header = () => {
             source={require("../../assets/icons8-heart-32.png")}
           />
         </TouchableOpacity>
-
-   {/*      <TouchableOpacity>
-          <View style={styles.unreadBadge}>
-            <Text style={styles.unreadBadgeText}>11</Text>
-          </View>
-          <Image
-            style={styles.icon}
-            source={require("../../assets/icons8-chat-bubble-50.png")}
-          />
-        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -61,22 +54,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     resizeMode: "contain",
   },
-/*   unreadBadge: {
-    backgroundColor: "red",
-    position: "absolute",
-    left: 20,
-    bottom: 18,
-    width: 25,
-    height: 18,
-    borderRadius: 25,
-    alignItems: "center",
-    justifyContent: "center",
-    zIndex: 100,
-  },
-  unreadBadgeText: {
-    color: "white",
-    fontWeight: 600,
-  }, */
 });
 
 export default Header;
