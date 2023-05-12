@@ -5,7 +5,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
 
-const BottomTab = () => {
+const HomeMenu = () => {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BottomTab;
+export default HomeMenu;

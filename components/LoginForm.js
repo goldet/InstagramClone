@@ -41,7 +41,7 @@ const LoginForm = () => {
       initialValues={{ username: "", password: "" }}
       onSubmit={(values) => {
         console.log(values);
-        navigation.navigate("BottomTab");
+        navigation.navigate("HomeMenu");
       }}
       validationSchema={loginSchema}
       validateOnMount={true}
