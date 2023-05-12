@@ -1,9 +1,8 @@
 import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
 
-const Header = () => {
-  const navigation = useNavigation();
+const Header = ({navigation}) => {
+
 
   return (
     <View style={styles.container}>
@@ -15,7 +14,7 @@ const Header = () => {
       </TouchableOpacity>
 
       <View style={styles.iconsContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("NewPostScreen")}>
+        <TouchableOpacity onPress={() => navigation.push("NewPostScreen")}>
           <Image
             style={styles.icon}
             source={require("../../assets/icons8-add-new-50.png")}

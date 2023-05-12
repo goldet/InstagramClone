@@ -4,6 +4,9 @@ import * as Yup from "yup";
 import { Formik } from "formik";
 import { TextInput } from "react-native-gesture-handler";
 import { Divider } from "react-native-elements";
+import validUrl from "valid-url";
+import { useNavigation } from '@react-navigation/native';
+
 
 const placeholderIMG =
   "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png";
@@ -14,10 +17,14 @@ const uploadPostSchema = Yup.object().shape({
 
 const FormikPostUploader = () => {
   const [thumbnailUrl, setThumbnailUrl] = useState(placeholderIMG);
+  const navigation = useNavigation();
   return (
     <Formik
       initialValues={{ caption: "", imageUrl: "" }}
-      onSubmit={(values) => console.log(values)}
+      onSubmit={(values) => {
+        console.log(values);
+        navigation.goBack();
+      }}
       validationSchema={uploadPostSchema}
       validateOnMount={true}
     >
@@ -38,7 +45,7 @@ const FormikPostUploader = () => {
             }}
           >
             <Image
-              source={{ uri: thumbnailUrl ? thumbnailUrl : placeholderIMG }}
+              source={{ uri: validUrl.isUri(thumbnailUrl) ? thumbnailUrl : placeholderIMG }}
               style={{ width: 100, height: 100, borderRadius: 8 }}
             />
             <View style={{ flex: 1, marinLeft: 12 }}>

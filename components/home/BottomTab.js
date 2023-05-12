@@ -8,17 +8,23 @@ const Tab = createBottomTabNavigator();
 const BottomTab = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: "rgb(255,255,255)",
-        inactiveTintColor: "rgb(133,133,133)",
-        tabStyle: { backgroundColor: "black" },
-        showLabel: false,
-        style: { height: 70 },
+      screenOptions={{
+        tabBarActiveTintColor: "rgb(255,255,255)",
+        tabBarInactiveTintColor: "rgb(133,133,133)",
+        tabBarStyle: {
+          backgroundColor: "black",
+          height: 70,
+        },
+        tabBarItemStyle: {
+          height: 70,
+        },
+        tabBarShowLabel: false,
+        headerShown: false,
       }}
-      screenOptions={{ headerShown: false }}
     >
       {BottomTabIcons.map((tab, index) => (
         <Tab.Screen
+        key={index}
           name={tab.name}
           component={tab.component}
           options={{

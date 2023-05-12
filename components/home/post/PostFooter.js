@@ -11,9 +11,11 @@ const PostFooter = ({ post }) => {
     <View>
       <View style={styles.container}>
         {PostFooterIcons.slice(0, 3).map((icon, index) => (
+          <View key={index} >
           <TouchableOpacity>
-            <Image key={index} style={styles.icon} source={icon.imageUrl} />
+            <Image style={styles.icon} source={icon.imageUrl} />
           </TouchableOpacity>
+          </View>
         ))}
         <View style={styles.rightIconContainer}>
           <TouchableOpacity>

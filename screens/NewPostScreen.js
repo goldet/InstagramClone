@@ -6,8 +6,8 @@ import FormikPostUploader from "../components/newpost/FormikPostUploader";
 const NewPostScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <NewPostHeader />
-      <FormikPostUploader />
+      <NewPostHeader/>
+      <FormikPostUploader/>
     </SafeAreaView>
   );
 }

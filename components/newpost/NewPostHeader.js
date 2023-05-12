@@ -1,12 +1,12 @@
 import { View, Image, TouchableOpacity, StyleSheet, Text } from "react-native";
 import React from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation } from '@react-navigation/native';
 
 const NewPostHeader = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("BottomTab")}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Image
           style={styles.logo}
           source={require("../../assets/icons8-less-than-50.png")}

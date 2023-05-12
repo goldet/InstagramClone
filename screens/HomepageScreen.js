@@ -6,12 +6,12 @@ import Post from "../components/home/post/Post";
 import { PostContext } from "../context/PostContext";
 
 
-const HomepageScreen = () => {
+const HomepageScreen = ({navigation}) => {
   const { postList } = useContext(PostContext);
   return (
     <>
       <SafeAreaView style={styles.container}>
-        <Header />
+        <Header navigation={navigation} />
         <Stories />
         <ScrollView>
           {postList.map((post, index) => (

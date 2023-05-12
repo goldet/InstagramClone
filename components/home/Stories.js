@@ -14,10 +14,9 @@ const Stories = () => {
     <View style={styles.container}>
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {DummyDataUsers.map((story, index) => (
-          <View>
+          <View key={index}>
             <TouchableOpacity>
               <Image
-                key={index}
                 style={styles.story}
                 source={{ uri: story.image }}
               />
