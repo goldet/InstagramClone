@@ -26,7 +26,7 @@ const Header = () => {
           />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+   {/*      <TouchableOpacity>
           <View style={styles.unreadBadge}>
             <Text style={styles.unreadBadgeText}>11</Text>
           </View>
@@ -34,7 +34,7 @@ const Header = () => {
             style={styles.icon}
             source={require("../../assets/icons8-chat-bubble-50.png")}
           />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     resizeMode: "contain",
   },
-  unreadBadge: {
+/*   unreadBadge: {
     backgroundColor: "red",
     position: "absolute",
     left: 20,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   unreadBadgeText: {
     color: "white",
     fontWeight: 600,
-  },
+  }, */
 });
 
 export default Header;

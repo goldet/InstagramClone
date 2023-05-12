@@ -1,27 +1,33 @@
-import Homescreen from "../screens/Homescreen"
+import Homescreen from "../screens/Homescreen";
+import SearchScreen from "../screens/SearchScreen";
+import ReelsScreen from "../screens/ReelsScreen";
+import MessagesScreen from "../screens/MessagesScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+
 export const BottomTabIcons = [
   {
     name: "Home",
+    component: Homescreen,
     imageUrl: require("../assets/icons8-home-16.png"),
-    component: {Homescreen}
   },
   {
     name: "Search",
+    component: SearchScreen,
     imageUrl: require("../assets/icons8-search-30.png"),
-    component: {Homescreen}
   },
   {
     name: "Reels",
+    component: ReelsScreen,
     imageUrl: require("../assets/icons8-reels-50.png"),
-    component: {Homescreen}
   },
   {
     name: "Messages",
+    component: MessagesScreen,
     imageUrl: require("../assets/icons8-chat-bubble-50.png"),
-    component: {Homescreen}
   },
-/*   {
+  {
     name: "Profile",
-    imageUrl: require("../assets/igprofileimage.jpg"),
-  }, */
+    component: ProfileScreen,
+    imageUrl: require("../assets/instagramuserprofileimage.png"),
+  },
 ];
