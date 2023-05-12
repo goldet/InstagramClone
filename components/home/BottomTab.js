@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import React from "react";
 import { BottomTabIcons } from "../../assets/BottomTabIcons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import instagramuserprofileimage from "../../assets/instagramuserprofileimage.png";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +36,7 @@ const BottomTab = () => {
                   source={tab.imageUrl}
                   style={[
                     { tintColor: color, width: size, height: size },
-                    tab.name === "Profile" && { borderRadius: 100 },
+                    tab.name === "Profile" && { height: 35 },
                   ]}
                 />
               </>
