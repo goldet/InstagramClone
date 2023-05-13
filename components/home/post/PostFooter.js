@@ -21,7 +21,7 @@ const PostFooter = ({ post }) => {
                 style={styles.icon}
                 source={icon.imageUrl}
                 accessibilityLabel={icon.accessibilityLabel}
-                accessibilityHint={icon.accessibilityHint}
+                accessibilityRole="Button"
                 accessibilityIgnoresInvertColors={true}
               />
             </TouchableOpacity>
@@ -38,7 +38,7 @@ const PostFooter = ({ post }) => {
               style={styles.icon}
               source={PostFooterIcons[3].imageUrl}
               accessibilityLabel={PostFooterIcons[3].accessibilityLabel}
-              accessibilityHint={PostFooterIcons[3].accessibilityHint}
+              accessibilityRole="Button"
               accessibilityIgnoresInvertColors={true}
             />
           </TouchableOpacity>
@@ -51,6 +51,7 @@ const PostFooter = ({ post }) => {
         <Text
           style={styles.username}
           accessibilityLabel={`${post.likes} likes`}
+          accessibilityRole="Button"
         >
           {post.likes} likes
         </Text>
