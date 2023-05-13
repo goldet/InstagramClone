@@ -15,10 +15,15 @@ const Stories = () => {
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
         {DummyDataUsers.map((story, index) => (
           <View key={index}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              accessibilityRole="button"
+              accessibilityLabel={`View ${story.user}'s story`}
+              accessibilityHint="Double tap to view the story"
+            >
               <Image
                 style={styles.story}
                 source={{ uri: story.image }}
+                accessibilityTraits="image"
               />
             </TouchableOpacity>
             <Text
@@ -48,7 +53,7 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     borderColor: "orange",
     borderWidth: 3,
-    marginLeft: 6,    
+    marginLeft: 6,
   },
   username: {
     color: "white",
