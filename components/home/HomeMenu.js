@@ -24,7 +24,7 @@ const HomeMenu = () => {
     >
       {BottomTabIcons.map((tab, index) => (
         <Tab.Screen
-        key={index}
+          key={index}
           name={tab.name}
           component={tab.component}
           options={{
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: "red",
     position: "absolute",
     left: 35,
-    bottom: 25,
+    bottom: 34,
     width: 25,
     height: 18,
     borderRadius: 25,
