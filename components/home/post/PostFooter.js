@@ -4,37 +4,55 @@ import { PostFooterIcons } from "../../../assets/PostFooterIcons";
 import { useShowComments } from "../../../hooks/useShowComments";
 
 const PostFooter = ({ post }) => {
-    const { comments } = post;
-    const showComments = useShowComments(comments);
+  const { comments } = post;
+  const showComments = useShowComments(comments);
 
   return (
     <View>
       <View style={styles.container}>
         {PostFooterIcons.slice(0, 3).map((icon, index) => (
-          <View key={index} >
-          <TouchableOpacity>
-            <Image style={styles.icon} source={icon.imageUrl} />
-          </TouchableOpacity>
+          <View key={index}>
+            <TouchableOpacity accessibilityIgnoresInvertColors={true}>
+              <Image
+                style={styles.icon}
+                source={icon.imageUrl}
+                accessibilityLabel={icon.accessibilityLabel}
+                accessibilityHint={icon.accessibilityHint}
+                accessibilityIgnoresInvertColors={true}
+              />
+            </TouchableOpacity>
           </View>
         ))}
         <View style={styles.rightIconContainer}>
-          <TouchableOpacity>
+          <TouchableOpacity accessibilityIgnoresInvertColors={true}>
             <Image
               key={3}
               style={styles.icon}
               source={PostFooterIcons[3].imageUrl}
+              accessibilityLabel={PostFooterIcons[3].accessibilityLabel}
+              accessibilityHint={PostFooterIcons[3].accessibilityHint}
+              accessibilityIgnoresInvertColors={true}
             />
           </TouchableOpacity>
         </View>
       </View>
       <TouchableOpacity>
-        <Text style={styles.username}>{post.likes} likes</Text>
+        <Text
+          style={styles.username}
+          accessibilityLabel={`${post.likes} likes`}
+        >
+          {post.likes} likes
+        </Text>
       </TouchableOpacity>
       <View style={styles.container2}>
         <TouchableOpacity>
-          <Text style={styles.username}>{post.user.user}</Text>
+          <Text style={styles.username} accessibilityLabel={post.user.user}>
+            {post.user.user}
+          </Text>
         </TouchableOpacity>
-        <Text style={styles.comment}>{post.caption}</Text>
+        <Text style={styles.comment} accessibilityLabel={post.caption}>
+          {post.caption}
+        </Text>
       </View>
 
       <Text>{showComments}</Text>
@@ -65,7 +83,7 @@ const styles = StyleSheet.create({
     fontWeight: 600,
   },
   comment: {
-    color:"white",
+    color: "white",
     marginLeft: 5,
     fontWeight: 400,
   },
