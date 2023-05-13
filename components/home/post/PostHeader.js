@@ -5,14 +5,20 @@ const PostHeader = ({ post }) => {
   return (
     <View style={styles.container}>
       <View style={styles.postHeaderContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          accessibilityLabel={`Profile picture of ${post.user.user}`}
+          accessibilityHint={`Tap to view ${post.user.user} profile`}
+        >
           <Image
             source={{ uri: post.user.image }}
             style={styles.story}
             accessibilityLabel={`Profile picture of ${post.user.user}`}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          accessibilityLabel={`Username: ${post.user.user}`}
+          accessibilityHint={`Tap to view ${post.user.user} profile`}
+        >
           <Text
             accessibilityRole="text"
             accessibilityLabel={`Username: ${post.user.user}`}
@@ -22,7 +28,10 @@ const PostHeader = ({ post }) => {
           </Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        accessibilityLabel="More options"
+        accessibilityHint={"Tap to view more options"}
+      >
         <Text
           accessibilityRole="text"
           accessibilityLabel="More options"
