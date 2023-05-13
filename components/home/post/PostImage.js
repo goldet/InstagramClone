@@ -7,6 +7,8 @@ const PostImage = ({ post }) => {
       <Image
         style={styles.postImage}
         source={{ uri: post.imageUrl }}
+        accessibilityLabel="Posted image"
+        accessibilityRole="image"
       />
     </View>
   );
