@@ -16,19 +16,22 @@ const Header = ({ navigation }) => {
         <TouchableOpacity
           onPress={() => navigation.push("NewPostScreen")}
           accessibilityLabel="New post"
+          accessibilityHint="Tap to Add New Post"
         >
           <Image
             style={styles.icon}
             source={require("../../assets/icons8-add-new-50.png")}
-            accessibilityLabel="New post"
+            accessibilityLabel="Plus Sign for Adding Posts"
+            accessibilityRole="button"
           />
         </TouchableOpacity>
 
-        <TouchableOpacity accessibilityLabel="Likes">
+        <TouchableOpacity accessibilityLabel="Likes" accessibilityHint="Tap to check your likes">
           <Image
             style={styles.icon}
             source={require("../../assets/icons8-heart-32.png")}
-            accessibilityLabel="Likes"
+            accessibilityRole="button"
+            accessibilityLabel="Heart Image for likes"
           />
         </TouchableOpacity>
       </View>
