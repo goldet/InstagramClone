@@ -1,30 +1,34 @@
 import { View, Image, StyleSheet, TouchableOpacity, Text } from "react-native";
 import React from "react";
 
-const Header = ({navigation}) => {
-
-
+const Header = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity>
+    <View style={styles.container} accessibilityRole="header">
+      <TouchableOpacity accessibilityLabel="Instagram logo">
         <Image
           style={styles.logo}
           source={require("../../assets/igtitlelogo.png")}
+          accessibilityLabel="Instagram logo"
         />
       </TouchableOpacity>
 
       <View style={styles.iconsContainer}>
-        <TouchableOpacity onPress={() => navigation.push("NewPostScreen")}>
+        <TouchableOpacity
+          onPress={() => navigation.push("NewPostScreen")}
+          accessibilityLabel="New post"
+        >
           <Image
             style={styles.icon}
             source={require("../../assets/icons8-add-new-50.png")}
+            accessibilityLabel="New post"
           />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity accessibilityLabel="Likes">
           <Image
             style={styles.icon}
             source={require("../../assets/icons8-heart-32.png")}
+            accessibilityLabel="Likes"
           />
         </TouchableOpacity>
       </View>
