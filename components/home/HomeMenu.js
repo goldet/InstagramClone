@@ -8,6 +8,7 @@ const Tab = createBottomTabNavigator();
 const HomeMenu = () => {
   return (
     <Tab.Navigator
+      accessibilityRole="tablist"
       screenOptions={{
         tabBarActiveTintColor: "rgb(255,255,255)",
         tabBarInactiveTintColor: "rgb(133,133,133)",
@@ -24,6 +25,7 @@ const HomeMenu = () => {
     >
       {BottomTabIcons.map((tab, index) => (
         <Tab.Screen
+          accessibilityHint={tab.accessibilityHint}
           key={index}
           name={tab.name}
           component={tab.component}
@@ -36,6 +38,7 @@ const HomeMenu = () => {
                   </View>
                 )}
                 <Image
+                  accessibilityLabel={tab.accessibilityLabel}
                   key={index}
                   source={tab.imageUrl}
                   style={[
