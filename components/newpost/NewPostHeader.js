@@ -1,21 +1,29 @@
 import { View, Image, TouchableOpacity, StyleSheet, Text } from "react-native";
 import React from "react";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 
 const NewPostHeader = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        accessible={true}
+        accessibilityLabel="Go back Button"
+        accessibilityHint="Tap to go back to home"
+      >
         <Image
           style={styles.logo}
           source={require("../../assets/icons8-less-than-50.png")}
+          accessibilityRole="Less than sign to go back"
         />
       </TouchableOpacity>
 
-      <Text style={styles.text}>New Post</Text>
-      <View style={{ width: 20}}></View>
-     {/*  <TouchableOpacity>
+      <Text accessibilityLabel="New Post" style={styles.text}>
+        New Post
+      </Text>
+      <View style={{ width: 20 }}></View>
+      {/*  <TouchableOpacity>
         <Text style={styles.text}>Share</Text>
       </TouchableOpacity> */}
     </View>
