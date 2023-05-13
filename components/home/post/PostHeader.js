@@ -6,14 +6,30 @@ const PostHeader = ({ post }) => {
     <View style={styles.container}>
       <View style={styles.postHeaderContainer}>
         <TouchableOpacity>
-          <Image source={{ uri: post.user.image }} style={styles.story} />
+          <Image
+            source={{ uri: post.user.image }}
+            style={styles.story}
+            accessibilityLabel={`Profile picture of ${post.user.user}`}
+          />
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.username}>{post.user.user}</Text>
+          <Text
+            accessibilityRole="text"
+            accessibilityLabel={`Username: ${post.user.user}`}
+            style={styles.username}
+          >
+            {post.user.user}
+          </Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity>
-        <Text style={styles.ellipses}>...</Text>
+        <Text
+          accessibilityRole="text"
+          accessibilityLabel="More options"
+          style={styles.ellipses}
+        >
+          ...
+        </Text>
       </TouchableOpacity>
     </View>
   );
