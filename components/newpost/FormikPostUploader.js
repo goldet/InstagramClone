@@ -54,13 +54,11 @@ const FormikPostUploader = () => {
                 onChangeText={handleChange("caption")}
                 onBlur={handleBlur("caption")}
                 value={values.caption}
+                accessibilityLabel="Caption Input Field"
+                accessibilityState={{ invalid: !!errors.caption }}
               />
               {errors.caption && (
-                <Text
-                  style={styles.error}
-                >
-                  {errors.caption}
-                </Text>
+                <Text style={styles.error}>{errors.caption}</Text>
               )}
             </View>
           </View>
@@ -73,16 +71,22 @@ const FormikPostUploader = () => {
             onChangeText={handleChange("imageUrl")}
             onBlur={handleBlur("imageUrl")}
             value={values.imageUrl}
+            accessibilityLabel="Image URL Input Field"
+            accessibilityState={{ invalid: !!errors.imageUrl }}
           />
           {errors.imageUrl && (
-            <Text
-              style={[styles.error, {marginLeft: 28}]}
-            >
+            <Text style={[styles.error, { marginLeft: 28 }]}>
               {errors.imageUrl}
             </Text>
           )}
 
-          <Button onPress={handleSubmit} title="Share" disabled={!isValid} />
+          <Button
+            accessibilityRole="button"
+            accessibilityHint="Press this button to share your post"
+            onPress={handleSubmit}
+            title="Share"
+            disabled={!isValid}
+          />
         </>
       )}
     </Formik>
@@ -117,10 +121,10 @@ const styles = StyleSheet.create({
   },
   error: {
     fontSize: 10,
-                    color: "red",
-                    marginLeft: 10,
-                    marginTop: 5,
-  }
+    color: "red",
+    marginLeft: 10,
+    marginTop: 5,
+  },
 });
 
 export default FormikPostUploader;
