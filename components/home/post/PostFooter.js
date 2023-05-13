@@ -12,7 +12,11 @@ const PostFooter = ({ post }) => {
       <View style={styles.container}>
         {PostFooterIcons.slice(0, 3).map((icon, index) => (
           <View key={index}>
-            <TouchableOpacity accessibilityIgnoresInvertColors={true}>
+            <TouchableOpacity
+              accessibilityIgnoresInvertColors={true}
+              accessibilityLabel={icon.accessibilityLabel}
+              accessibilityHint={icon.accessibilityHint}
+            >
               <Image
                 style={styles.icon}
                 source={icon.imageUrl}
@@ -24,7 +28,11 @@ const PostFooter = ({ post }) => {
           </View>
         ))}
         <View style={styles.rightIconContainer}>
-          <TouchableOpacity accessibilityIgnoresInvertColors={true}>
+          <TouchableOpacity
+            accessibilityLabel={PostFooterIcons[3].accessibilityLabel}
+            accessibilityHint={PostFooterIcons[3].accessibilityHint}
+            accessibilityIgnoresInvertColors={true}
+          >
             <Image
               key={3}
               style={styles.icon}
@@ -36,7 +44,10 @@ const PostFooter = ({ post }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        accessibilityLabel={`${post.likes} likes`}
+        accessibilityHint="Tap to see users who liked the post"
+      >
         <Text
           style={styles.username}
           accessibilityLabel={`${post.likes} likes`}
@@ -45,7 +56,10 @@ const PostFooter = ({ post }) => {
         </Text>
       </TouchableOpacity>
       <View style={styles.container2}>
-        <TouchableOpacity>
+        <TouchableOpacity
+          accessibilityLabel={post.user.user}
+          accessibilityHint="Tap to see user who commented"
+        >
           <Text style={styles.username} accessibilityLabel={post.user.user}>
             {post.user.user}
           </Text>
