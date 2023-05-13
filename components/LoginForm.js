@@ -58,6 +58,7 @@ const LoginForm = () => {
         <>
           <View style={styles.container}>
             <TextInput
+              accessibilityLabel="Enter your phone number, username, or email"
               style={styles.textInput}
               onChange={(e) => setUsername(e.nativeEvent.text)}
               placeholder="Phone number, username, or email"
@@ -71,6 +72,7 @@ const LoginForm = () => {
             )}
 
             <TextInput
+              accessibilityLabel="Enter your password"
               style={styles.textInput}
               onChange={(e) => setPassword(e.nativeEvent.text)}
               placeholder="Password"
@@ -84,6 +86,8 @@ const LoginForm = () => {
               <Text style={styles.error}>{errors.password}</Text>
             )}
             <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Forgot password? Press this link to reset your password."
               style={
                 styles.forgotPasswordContainer
               } /* onPress={nav to forgot password screen} */
@@ -92,6 +96,7 @@ const LoginForm = () => {
             </Pressable>
 
             <Button
+              accessibilityLabel="Log in"
               buttonStyle={{ backgroundColor: "rgb(96,179,247)" }}
               titleStyle={{ color: "white" }}
               onPress={handleSubmit}
@@ -100,6 +105,8 @@ const LoginForm = () => {
             />
 
             <Pressable
+              accessibilityRole="link"
+              accessibilityLabel="Don't have an account? Press this link to sign up."
               onPress={() => navigation.navigate("SignupScreen")}
               style={
                 styles.goToSignup
