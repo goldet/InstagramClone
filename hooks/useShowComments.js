@@ -9,10 +9,9 @@ export const useShowComments = (comments) => {
     setShowAllComments(!showAllComments);
   };
 
-
   if (comments.length <= 3) {
     return (
-      <View>
+      <View accessibilityLabel="Comments">
         {comments &&
           comments.map((comment, index) => (
             <View key={index} style={styles.container2}>
@@ -26,16 +25,25 @@ export const useShowComments = (comments) => {
     );
   } else {
     return (
-      <View>
-        <TouchableOpacity onPress={showComments}>
+      <View accessibilityLabel="Comments">
+        <TouchableOpacity
+          onPress={showComments}
+          accessibilityLabel="view/hide comments button"
+          accessibilityHint="tap to show or hide comments"
+        >
           <Text style={styles.showComment}>
-          {showAllComments ? "Hide comments" : `View all ${comments.length} comments`}
+            {showAllComments
+              ? "Hide comments"
+              : `View all ${comments.length} comments`}
           </Text>
         </TouchableOpacity>
         {showAllComments
           ? comments.map((comment, index) => (
               <View key={index} style={styles.container2}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  accessibilityLabel={`${comment.user}'s username`}
+                  accessibilityHint="tap to view profile"
+                >
                   <Text style={styles.username}>{comment.user}</Text>
                 </TouchableOpacity>
                 <Text style={styles.comment}>{comment.comment}</Text>
@@ -43,7 +51,10 @@ export const useShowComments = (comments) => {
             ))
           : comments.slice(0, 3).map((comment, index) => (
               <View key={index} style={styles.container2}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                  accessibilityLabel={`${comment.user}'s username`}
+                  accessibilityHint="tap to view profile"
+                >
                   <Text style={styles.username}>{comment.user}</Text>
                 </TouchableOpacity>
                 <Text style={styles.comment}>{comment.comment}</Text>
@@ -54,23 +65,22 @@ export const useShowComments = (comments) => {
   }
 };
 
-
 const styles = StyleSheet.create({
-    container2: {
-      flexDirection: "row",
-    },
-    username: {
-      color: "white",
-      marginLeft: 15,
-      fontWeight: 600,
-    },
-    comment: {
-      color:"white",
-      marginLeft: 5,
-      fontWeight: 400,
-    },
-    showComment: {
-      color: "rgb(123,123,123)",
-      marginLeft: 15,
-    }
-  });
+  container2: {
+    flexDirection: "row",
+  },
+  username: {
+    color: "white",
+    marginLeft: 15,
+    fontWeight: 600,
+  },
+  comment: {
+    color: "white",
+    marginLeft: 5,
+    fontWeight: 400,
+  },
+  showComment: {
+    color: "rgb(123,123,123)",
+    marginLeft: 15,
+  },
+});
