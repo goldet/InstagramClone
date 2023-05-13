@@ -13,6 +13,7 @@ const PostHeader = ({ post }) => {
             source={{ uri: post.user.image }}
             style={styles.story}
             accessibilityLabel={`Profile picture of ${post.user.user}`}
+            accessibilityRole="Button"
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -20,7 +21,7 @@ const PostHeader = ({ post }) => {
           accessibilityHint={`Tap to view ${post.user.user} profile`}
         >
           <Text
-            accessibilityRole="text"
+            accessibilityRole="text and button"
             accessibilityLabel={`Username: ${post.user.user}`}
             style={styles.username}
           >
@@ -33,7 +34,7 @@ const PostHeader = ({ post }) => {
         accessibilityHint={"Tap to view more options"}
       >
         <Text
-          accessibilityRole="text"
+          accessibilityRole="button"
           accessibilityLabel="More options"
           style={styles.ellipses}
         >
